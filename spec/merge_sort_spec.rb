@@ -15,7 +15,7 @@ def merge_sort(array)
   sorted = merge(left, right)
 
   # return the merged array
-  sorted.flatten
+  sorted
 end
 
 
@@ -34,14 +34,10 @@ def merge(left_array, right_array)
       break
     end
 
-    if left_item < right_item
-      merged_array << left_array.shift
-    else
-      merged_array << right_array.shift
-    end
+    merged_array << (left_item < right_item ? left_array.shift : right_array.shift)
   end
 
-  merged_array.flatten
+  merged_array
 end
 
 RSpec.describe 'merge sort' do
